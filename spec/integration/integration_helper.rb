@@ -24,10 +24,10 @@ module IntegrationHelper
 
   def connect!(port)
     ActiveRecord::Base.establish_connection(
-      :adapter => 'mysql',
+      :adapter => 'mysql2',
       :host => '127.0.0.1',
       :database => 'lhm',
-      :username => '',
+      :username => 'root',
       :port => port
     )
 

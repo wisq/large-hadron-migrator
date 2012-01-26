@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.executables   = ["lhm-kill-queue"]
 
   # this should be a real dependency, but we're using a different gem in our code
-  s.add_development_dependency "mysql", "~> 2.8.1"
+  s.add_development_dependency "mysql2", "~> 0.2.18"
   s.add_development_dependency "minitest", "= 2.10.0"
   s.add_development_dependency "rake"
 

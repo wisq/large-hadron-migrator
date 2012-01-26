@@ -140,9 +140,11 @@ describe Lhm do
         50.times { |n| execute("insert into users set reference = '#{ n }'") }
 
         insert = Thread.new do
-          10.times do |n|
-            execute("insert into users set reference = '#{ 100 + n }'")
-            sleep(0.17)
+          ActiveRecord::Base.connection_pool.with_connection do |connection|
+            10.times do |n|
+              connection.execute("insert into users set reference = '#{ 100 + n }'")
+              sleep(0.17)
+            end
           end
         end
 
@@ -161,9 +163,11 @@ describe Lhm do
         50.times { |n| execute("insert into users set reference = '#{ n }'") }
 
         delete = Thread.new do
-          10.times do |n|
-            execute("delete from users where id = '#{ n + 1 }'")
-            sleep(0.17)
+          ActiveRecord::Base.connection_pool.with_connection do |connection|
+            10.times do |n|
+              connection.execute("delete from users where id = '#{ n + 1 }'")
+              sleep(0.18)
+            end
           end
         end
 

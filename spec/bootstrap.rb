@@ -1,6 +1,7 @@
 # Copyright (c) 2011, SoundCloud Ltd., Rany Keddo, Tobias Bielohlawek, Tobias
 # Schmidt
 
+require 'bundler/setup'
 require 'minitest/spec'
 require 'minitest/autorun'
 require 'minitest/mock'
