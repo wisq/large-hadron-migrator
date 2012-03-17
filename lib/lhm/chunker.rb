@@ -90,6 +90,7 @@ module Lhm
         end
 
         print "."
+        $stdout.flush
       end
     end
   end
